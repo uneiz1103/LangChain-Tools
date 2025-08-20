@@ -1,7 +1,18 @@
 from langchain_community.tools import ShellTool
 
+# Initialize the shell tool
 shell_tool = ShellTool()
 
-results = shell_tool.invoke('ls')
+try:
+    # Execute the shell command safely
+    command = "ls"
+    results = shell_tool.invoke(command)
 
-print(results)
+    # Print results only if not empty
+    if results:
+        print("Command executed successfully:\n", results)
+    else:
+        print("No output from command.")
+
+except Exception as e:
+    print("Error while executing shell command:", str(e))
