@@ -1,1 +1,6 @@
- 
+langchain
+langchain-core
+langchain-community
+pydantic
+duckduckgo-search
+langchain_experimental 
