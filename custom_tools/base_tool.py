@@ -18,3 +18,8 @@ class MultiplyTool(BaseTool):
 multiply_tool = MultiplyTool()
 
 result = multiply_tool.invoke({'a':3, 'b':3})
+
+print(result)
+print(multiply_tool.name)
+print(multiply_tool.description)
+print(multiply_tool.args)
