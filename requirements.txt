@@ -6,3 +6,4 @@ duckduckgo-search
 ddgs
 langchain_experimental 
 streamlit
+pydantic
