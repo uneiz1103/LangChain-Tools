@@ -8,3 +8,5 @@ langchain_experimental
 streamlit
 pydantic
 typing
+langchain-openai
+requests
