@@ -3,10 +3,10 @@ langchain-core
 langchain-community
 pydantic
 duckduckgo-search
-ddgs
 langchain_experimental 
 streamlit
 pydantic
 typing
 langchain-openai
 requests
+ddgs
