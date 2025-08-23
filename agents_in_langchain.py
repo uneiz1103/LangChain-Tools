@@ -6,9 +6,21 @@ from langchain import hub
 import requests
 
 search_tool = DuckDuckGoSearchRun()
-
 results = search_tool.invoke('who has win ipl this year in india')
 # print(results)
+
+@tool
+def get_weather_data(city: str) -> str:
+    """
+    This function fetches the current weather data for a given city
+    """
+
+    url = f'https://api.weatherstack.com/current?access_key=4d1d8ae207a8c845a52df8a67bf3623e&query={city}'
+
+    response = requests.get(url)
+
+    return response.json()
+
 
 llm = ChatOpenAI()
 
@@ -19,13 +31,13 @@ prompt = hub.pull("hwchase17/react") #pulls the standard ReAct agent prompt
 # step 3: Create the ReAct agent manually with the pulled prompt
 agent = create_react_agent(
     llm=llm,
-    tools=[search_tool],
+    tools=[search_tool, get_weather_data],
     prompt=prompt
 )
 # step 4: Wrap it with AgentExecutor
 agent_executor = AgentExecutor(
     agent=agent,
-    tools=[search_tool],
+    tools=[search_tool, get_weather_data],
     verbose=True
 )
 
